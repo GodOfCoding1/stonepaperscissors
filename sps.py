@@ -3,11 +3,22 @@ from random import randint
 
 chosen = None
 selected = False
-
+global root
 
 def winnerscreen(e, chosen):
+    root.destroy()
     global root2
     root2 = Tk()
+    w = 200
+    h = 100
+
+    ws = root2.winfo_screenwidth() 
+    hs = root2.winfo_screenheight() 
+    x = (ws/2) - (w/2)
+    y = (hs/2) - (h/2)
+
+
+    root2.geometry('%dx%d+%d+%d' % (w, h, x, y))
     comp = Label(root2, text=f"What computer chose: {e}", padx=5, pady=5)
     comp.pack()
     winner = whowon(e, chosen)
@@ -75,6 +86,16 @@ def main1st():
     global e
     global root
     root = Tk()
+    w = 80
+    h = 110
+
+    ws = root.winfo_screenwidth() 
+    hs = root.winfo_screenheight() 
+    x = (ws/2) - (w/2)
+    y = (hs/2) - (h/2)
+
+
+    root.geometry('%dx%d+%d+%d' % (w, h, x, y))
 
     label1 = Label(root, text="CHOSE ONE", padx=5, pady=5)
     label1.pack()
@@ -91,7 +112,6 @@ def main1st():
 
 
 def again():
-    root.destroy()
     root2.destroy()
     main1st()
 
